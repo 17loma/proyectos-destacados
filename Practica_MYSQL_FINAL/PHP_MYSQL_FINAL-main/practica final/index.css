@@ -1,0 +1,131 @@
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+    
+}
+td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.header {
+    background-color: #003366;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+/* Menú */
+.menu {
+    background-color: #00509e;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    background-image: none; 
+}
+
+
+.contenido {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px;
+    text-align: center;
+    vertical-align: middle;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    min-height: 500px; 
+}
+
+
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu ul li {
+    display: inline-block;
+    position: relative;
+}
+
+.menu ul li a {
+    display: block;
+    padding: 15px 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+}
+
+.menu ul li a:hover {
+    background-color: #003366;
+}
+
+.menu ul li ul {
+    display: none;
+    position: absolute;
+    background-color: #00509e;
+    list-style: none;
+    padding: 0;
+}
+
+.menu ul li:hover ul {
+    display: block;
+}
+
+.menu ul li ul li {
+    display: block;
+    width: 200px;
+}
+
+.menu ul li ul li a {
+    padding: 10px 20px;
+}
+
+/* Footer */
+.footer {
+    background-color: #003366;
+    color: white;
+    text-align: right;
+    padding: 5px 0;
+    font-size: 0.9rem;
+    margin-top: 20px;
+}
+
+
+
+@media screen and (max-width: 768px) {
+    .menu ul li {
+        display: block;
+        text-align: left;
+    }
+
+    .menu ul li ul li {
+        width: 100%;
+    }
+
+    .contenido table td {
+        padding: 5px;
+        text-align:center;
+        vertical-align: middle;
+    }
+
+    .contenido table img {
+        width: aUTO;
+        text-align:center;
+        vertical-align: middle;
+    }
+}
