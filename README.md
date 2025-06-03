@@ -1,4 +1,5 @@
 Portfolio de Proyectos – Álvaro López
+
 Bienvenido/a a mi portfolio profesional. Aquí encontrarás una selección de mis proyectos y scripts destacados en Python y automatización.
 A continuación, se explican dos de mis trabajos más relevantes, que no están publicados en este repositorio por motivos de privacidad y ética profesional.
 
