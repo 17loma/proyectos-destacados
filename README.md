@@ -37,9 +37,8 @@ La versión original contiene configuraciones y elementos propios del entorno de
 
 El repositorio conserva scripts y ejercicios de aprendizaje:
 
-- [Utilidades en Python](scripts_sueltos_py/)
-- [Herramientas para trabajar con PDF](PDF/)
-- [Apertura de enlaces](ABRIR-LINKS/)
+- [Utilidades de automatización en Python](projects/python-automation-tools/)
+- [Archivo académico e histórico](archive/academic/)
 
 ## Contacto
 
