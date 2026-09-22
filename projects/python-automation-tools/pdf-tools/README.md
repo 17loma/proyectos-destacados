@@ -1,56 +1,43 @@
- 1. Buscar PDFs Faltantes
-Este script compara una lista de nombres de PDFs (uno por línea en un archivo de texto) con los archivos PDF realmente presentes en un directorio, e informa de cuáles faltan.
+# Herramientas PDF
 
-¿Cómo funciona?
+[Volver a las utilidades](../README.md)
 
-Te pide la ruta del archivo de texto con la lista de nombres (sin extensión).
+Tres scripts independientes. Los comandos siguientes se ejecutan desde esta carpeta.
 
-Te pide la ruta del directorio donde buscar los PDFs.
+## Buscar documentos faltantes
 
-Muestra en pantalla los PDFs de la lista que no están en el directorio.
+[find_missing_pdfs.py](find_missing_pdfs.py) compara una lista de nombres sin extensión con los PDF de un directorio y sus subcarpetas. Muestra los nombres que no encuentra.
 
-Requisitos:
+Requiere Python 3, sin dependencias externas.
 
-Python 3.x
+```bash
+python find_missing_pdfs.py
+```
 
-Ejemplo de uso:
+Introduce la ruta del archivo de texto —un nombre por línea, sin `.pdf`— y la carpeta donde buscar. La comparación de nombres distingue mayúsculas y minúsculas.
 
-Prepara un archivo de texto con los nombres de los PDFs esperados, uno por línea (sin extensión).
+## Eliminar la primera página
 
-Ejecuta el script y sigue las instrucciones.
+[remove_first_page.py](remove_first_page.py) elimina la primera página de cada archivo terminado en `.pdf` dentro de la carpeta indicada, sin recorrer subcarpetas.
 
+```bash
+python -m pip install PyPDF2
+python remove_first_page.py
+```
 
-2. Eliminar la Primera Página de Todos los PDFs
-Este script elimina la primera página de todos los archivos PDF en un directorio especificado.
+**Sobrescribe los PDF originales.** Trabaja sobre copias y revisa el resultado antes de sustituir los documentos que quieras conservar.
 
-¿Cómo funciona?
+## Descargar PDF desde una hoja de cálculo
 
-Te pide la ruta del directorio que contiene los PDFs.
+[download_pdfs.py](download_pdfs.py) lee `listapdf.xlsx` desde el directorio de ejecución. Ese archivo es una entrada externa y no está incluido en el repositorio.
 
-Procesa todos los archivos PDF en ese directorio.
+Prepara la hoja activa sin cabecera: URL en la primera columna y nombre de destino sin extensión en la segunda. Si ejecutas estos comandos desde esta carpeta, coloca aquí la hoja de cálculo:
 
-Elimina la primera página de cada PDF y guarda los cambios en el mismo archivo.
+```bash
+python -m pip install requests openpyxl
+python download_pdfs.py
+```
 
-Requisitos:
+Introduce un directorio de destino que ya exista. El script guarda cada respuesta con extensión `.pdf` y puede sobrescribir archivos con el mismo nombre. No comprueba que la respuesta descargada sea un PDF válido; revisa los resultados.
 
-Python 3.x
-
-PyPDF2 (pip install PyPDF2)
-
-Ejemplo de uso:
-
-Haz una copia de seguridad de tus PDFs (el script los modifica).
-
-Ejecuta el script y sigue las instrucciones. 
-
-
-
-## Aviso de uso responsable
-
-> **Este script está diseñado para fines educativos y de automatización personal. No debe utilizarse para eliminar marcas de agua, logotipos u otros elementos protegidos por derechos de autor en documentos sin la debida autorización. El uso inadecuado de esta herramienta es responsabilidad exclusiva del usuario.**
-
-## Autor
-
-Álvaro López -lopezalvaro0317@gmail.com
-
-www.linkedin.com/in/álvaro-lópez-maceda-b53026356
+Las rutas relativas se resuelven desde el directorio de ejecución.

@@ -1,62 +1,25 @@
-1. Verificador de Imágenes
-¿Para qué sirve?
-Permite comprobar el tamaño y el peso de cualquier imagen, mostrando si es válida para su uso con PyAutoGUI u otros fines.
+# Utilidades de automatización en Python
 
-¿Cómo funciona?
+[Volver al portfolio](../../README.md)
 
-El script te pedirá la ruta de la imagen.
+Scripts independientes para trabajar con enlaces, documentos, imágenes y archivos. Se agrupan por función para que sea fácil localizar cada herramienta.
 
-Puedes verificar varias imágenes introduciendo sus rutas una a una.
+| Grupo | Utilidades |
+| --- | --- |
+| [Apertura de enlaces](link-opener/README.md) | Abrir una lista de enlaces y conservar los pendientes. |
+| [Herramientas PDF](pdf-tools/README.md) | Buscar PDF faltantes, eliminar la primera página y descargar documentos desde una hoja de cálculo. |
+| [Imágenes y PDF](image-pdf-tools/README.md) | Eliminar imágenes coincidentes en PDF e inspeccionar dimensiones y tamaño de imágenes. |
+| [Organización de archivos](file-utilities/README.md) | Mover cada PDF a una carpeta con su mismo nombre. |
+| [Herramientas de escritorio](desktop-tools/README.md) | Consultar las coordenadas del cursor. |
 
-Si pulsas Enter sin escribir nada, el script termina.
+## Uso
 
-Requisitos:
+Requieren Python 3. Cada grupo indica sus dependencias y los comandos de ejecución. Las rutas relativas introducidas por consola se interpretan desde el directorio de trabajo.
 
-Python 3.x
+Algunas herramientas modifican o mueven los archivos de entrada. Consulta su README y utiliza copias cuando necesites conservar los originales.
 
-Pillow (pip install pillow)
+## Configuración de editor conservada
 
-2. Organizador de PDFs en Carpetas
-¿Para qué sirve?
-Automatiza el proceso de mover cada archivo PDF de una carpeta a una subcarpeta con el mismo nombre (sin extensión), facilitando la organización de grandes volúmenes de documentos.
+[TFG.code-workspace](editor/TFG.code-workspace) es una configuración local de VS Code que apunta a una carpeta `TFG` externa al repositorio. Su ruta relativa conserva el destino de la ubicación original y depende de la organización de carpetas de cada equipo. Este archivo no incluye el código del proyecto.
 
-¿Cómo funciona?
-
-El script te pedirá la ruta de la carpeta con los PDFs.
-
-Crea una subcarpeta para cada PDF y mueve el archivo dentro de ella.
-
-Requisitos:
-
-Python 3.x
-
-3. Obtener Coordenadas del Ratón
-¿Para qué sirve?
-Muestra en tiempo real la posición actual del cursor del ratón, útil para automatizaciones con PyAutoGUI o para identificar coordenadas exactas en pantalla.
-
-¿Cómo funciona?
-
-Ejecuta el script.
-
-Mueve el ratón sobre la zona deseada.
-
-Pulsa Ctrl+C para detener el script y mostrar las coordenadas finales.
-
-Requisitos:
-
-Python 3.x
-
-PyAutoGUI (pip install pyautogui) 
-
-
-
-
-## Aviso de uso responsable
-
-> **Este script está diseñado para fines educativos y de automatización personal. No debe utilizarse para eliminar marcas de agua, logotipos u otros elementos protegidos por derechos de autor en documentos sin la debida autorización. El uso inadecuado de esta herramienta es responsabilidad exclusiva del usuario.**
-
-## Autor
-
-Álvaro López -lopezalvaro0317@gmail.com
-
-www.linkedin.com/in/álvaro-lópez-maceda-b53026356
+Autor: Álvaro López. [Contacto](../../README.md#contacto).

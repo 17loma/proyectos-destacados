@@ -1,18 +1,33 @@
+# Herramientas para imágenes y PDF
 
-## Ejemplo de funcionamiento
+[Volver a las utilidades](../README.md)
 
-- El script solicitará la ruta de la imagen de referencia (por ejemplo, `C:\Users\Usuario\logo.png`).
-- Luego pedirá la ruta de la carpeta con los PDFs (por ejemplo, `C:\Users\Usuario\Documentos\PDFs`).
-- Procesará todos los PDFs de la carpeta, eliminando la imagen de referencia donde la encuentre.
+Los comandos siguientes se ejecutan desde esta carpeta y requieren Python 3.
 
-## Aviso de uso responsable
+## Eliminar imágenes coincidentes en PDF
 
-> **Este script está diseñado para fines educativos y de automatización personal. No debe utilizarse para eliminar marcas de agua, logotipos u otros elementos protegidos por derechos de autor en documentos sin la debida autorización. El uso inadecuado de esta herramienta es responsabilidad exclusiva del usuario.**
+[remove_matching_images.py](remove_matching_images.py) compara las imágenes incrustadas de un PDF con una imagen de referencia. Usa PyMuPDF y Pillow.
 
-## Autor
+```bash
+python -m pip install PyMuPDF Pillow
+python remove_matching_images.py
+```
 
-Álvaro López -lopezalvaro0317@gmail.com
+Introduce la ruta de la imagen de referencia y la carpeta de los PDF. Procesa archivos terminados en `.pdf`, sin recorrer subcarpetas. Redimensiona cada imagen al tamaño de la referencia y compara los canales RGB con una tolerancia de 10.
 
-www.linkedin.com/in/álvaro-lópez-maceda-b53026356
+Elimina las imágenes coincidentes y reemplaza los PDF modificados. **Trabaja sobre copias:** no crea copias de seguridad y el criterio de comparación puede producir coincidencias no deseadas.
 
+Utiliza la herramienta con documentos propios o para cuya modificación tengas autorización.
 
+## Inspeccionar imágenes
+
+[inspect_image.py](inspect_image.py) muestra las dimensiones y el tamaño en bytes de las imágenes que indiques. Requiere Pillow.
+
+```bash
+python -m pip install Pillow
+python inspect_image.py
+```
+
+Introduce una ruta por consulta; pulsa Enter sin escribir nada para terminar. Su mensaje sobre PyAutoGUI se basa en un umbral de 1024 bytes, no en una prueba de compatibilidad ni de integridad completa.
+
+Las rutas relativas se interpretan desde el directorio de ejecución.
