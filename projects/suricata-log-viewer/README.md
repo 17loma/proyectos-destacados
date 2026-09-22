@@ -4,6 +4,8 @@ Proyecto final de Administración de Sistemas Informáticos en Red (ASIR), desar
 
 [Volver al portfolio](../../README.md)
 
+[Presentación de la defensa (PowerPoint)](docs/SuricataLogViewer_Defensa_Alvaro_Lopez_25.pptx)
+
 ## Objetivo
 
 Facilitar la consulta de eventos de seguridad, desde su generación en Suricata hasta su almacenamiento y visualización. El proyecto integra tratamiento de logs, control de acceso y avisos sobre eventos críticos en un entorno de laboratorio.
