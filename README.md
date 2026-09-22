@@ -1,40 +1,48 @@
-Portfolio de Proyectos – Álvaro López
+# Álvaro López
 
-Bienvenido/a a mi portfolio profesional. Aquí encontrarás una selección de mis proyectos y scripts destacados en Python y automatización.
-A continuación, se explican dos de mis trabajos más relevantes, que no están publicados en este repositorio por motivos de privacidad y ética profesional.
+**Sistemas · Redes · Soporte · Infraestructura**
 
-Trabajo de Fin de Grado (TFG): Suricata Log Viewer
-Mi TFG consiste en el desarrollo de una herramienta para la visualización, gestión y análisis de logs generados por Suricata, un sistema de detección de intrusos (IDS).
-El proyecto incluye:
+Soy Técnico Superior en Administración de Sistemas Informáticos en Red (ASIR) y Técnico en Instalaciones de Telecomunicaciones. Mi perfil se centra en sistemas, redes, soporte e infraestructura, con experiencia en Windows/Linux, redes y resolución de incidencias.
 
-  Procesamiento eficiente de grandes volúmenes de logs.
+Actualmente amplío mis conocimientos mediante proyectos prácticos. Este portfolio reúne parte de ese trabajo y documenta cómo aplico lo aprendido.
 
-  Interfaz gráfica para filtrar y visualizar eventos de seguridad.
+## Proyecto principal: Suricata Log Viewer
 
-  Exportación de reportes personalizados.
+Desarrollado como proyecto final de ASIR, Suricata Log Viewer permite procesar, almacenar y consultar eventos de seguridad desde una aplicación web.
 
-  Automatización de tareas de análisis.
+```text
+Suricata → EVE JSON → Python → MySQL → Laravel
+```
 
-¿Por qué no está el código disponible?
-El código fuente y los datos asociados al TFG contienen información sensible y detalles técnicos que, por motivos de confidencialidad, protección de datos y cumplimiento de las normativas, no pueden ser publicados de forma abierta.
-Si deseas más información sobre el proyecto o una demostración, puedes contactarme directamente.
+El proyecto conecta Suricata, ejecutado mediante Docker, con un proceso de tratamiento de logs en Python, una base de datos MySQL y una aplicación Laravel desplegada en un entorno Linux con Apache.
 
-Script dejar-seguir_ig (Automatización de gestión de seguidores en Instagram)
-He desarrollado un script en Python para automatizar la gestión de seguidores y seguidos en Instagram.
-Características principales:
+Incluye gestión de usuarios y roles, redes asociadas a usuarios, filtrado y paginación de eventos, alertas de eventos críticos, notificaciones y exportación a PDF. Las tareas programadas se automatizan mediante cron.
 
-  Identificación de cuentas inactivas o no deseadas.
+**[Consultar la documentación de Suricata Log Viewer](projects/suricata-log-viewer/README.md)**
 
-  Automatización del proceso de dejar de seguir cuentas de forma masiva.
+La versión original contiene configuraciones y elementos propios del entorno de laboratorio. Publicar todo el código requiere una limpieza específica previa; el código completo no está publicado en este repositorio.
 
-¿Por qué no está el código disponible?
-Este tipo de automatización puede estar en conflicto con los términos de uso de Instagram y podría ser utilizado para fines no éticos o para infringir la privacidad de terceros. Por responsabilidad y ética profesional, he decidido no publicar el código fuente de este script.
-Si tienes interés en conocer más detalles técnicos o necesitas una solución personalizada, puedes consultarme de forma privada.
+## Tecnologías utilizadas
 
-Contacto
-¿Te interesa alguno de estos proyectos o quieres saber más?
-Puedes contactarme en lopezalvaro0317@gmail.com o a través de LinkedIn (www.linkedin.com/in/álvaro-lópez-maceda-b53026356)
+| Área | Tecnologías |
+| --- | --- |
+| Sistemas e infraestructura | Windows Server, Linux, VMware, Hyper-V |
+| Redes | TCP/IP, DNS/DHCP |
+| Contenedores y análisis de eventos | Docker, Suricata |
+| Desarrollo y servicios web | Python, PHP, Laravel, Apache |
+| Bases de datos | MySQL, SQL Server |
+| Control de versiones | Git/GitHub |
 
-Nota:
-Este repositorio solo incluye ejemplos y material no sensible. Si deseas más información sobre algún proyecto privado, no dudes en ponerte en contacto conmigo.
+## Otros materiales del repositorio
 
+El repositorio conserva scripts y ejercicios de aprendizaje:
+
+- [Utilidades en Python](scripts_sueltos_py/)
+- [Herramientas para trabajar con PDF](PDF/)
+- [Apertura de enlaces](ABRIR-LINKS/)
+
+## Contacto
+
+- [Correo electrónico](mailto:lopezalvaro0317@gmail.com)
+- [LinkedIn](https://www.linkedin.com/in/%C3%A1lvaro-l%C3%B3pez-maceda-b53026356)
+- [GitHub](https://github.com/17loma)
