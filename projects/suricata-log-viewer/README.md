@@ -6,6 +6,8 @@ Proyecto final de Administración de Sistemas Informáticos en Red (ASIR), desar
 
 [Presentación de la defensa (PowerPoint)](docs/SuricataLogViewer_Defensa_Alvaro_Lopez_25.pptx)
 
+[Arquitectura técnica](docs/architecture.md) · [Plan de publicación](docs/PUBLISHING_PLAN.md)
+
 ## Objetivo
 
 Facilitar la consulta de eventos de seguridad, desde su generación en Suricata hasta su almacenamiento y visualización. El proyecto integra tratamiento de logs, control de acceso y avisos sobre eventos críticos en un entorno de laboratorio.
@@ -13,10 +15,10 @@ Facilitar la consulta de eventos de seguridad, desde su generación en Suricata 
 ## Arquitectura
 
 ```text
-Suricata → EVE JSON → Python → MySQL → Laravel
+Suricata 7 → EVE JSON → Python → MySQL → Laravel
 ```
 
-1. **Suricata**, ejecutado mediante Docker, genera eventos en formato EVE JSON.
+1. **Suricata 7**, ejecutado mediante Docker, genera eventos en formato EVE JSON.
 2. **Python** procesa los logs y prepara los eventos para su inserción en la base de datos.
 3. **MySQL** almacena los eventos procesados.
 4. **Laravel** proporciona la aplicación web para consultar y filtrar los eventos, además de gestionar usuarios, roles y redes.
@@ -25,7 +27,7 @@ Suricata → EVE JSON → Python → MySQL → Laravel
 
 | Componente | Tecnología |
 | --- | --- |
-| Detección y generación de eventos | Suricata |
+| Detección y generación de eventos | Suricata 7 |
 | Ejecución de Suricata | Docker |
 | Formato de logs | EVE JSON |
 | Procesamiento e inserción de eventos | Python |

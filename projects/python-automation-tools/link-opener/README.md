@@ -14,7 +14,7 @@ python links.py
 
 1. Prepara un archivo de texto con un enlace por línea. El archivo [links.txt](links.txt) incluido está vacío.
 2. Introduce la ruta de ese archivo.
-3. Indica una cantidad entera positiva de enlaces que quieras abrir.
+3. Indica una cantidad entera positiva de enlaces que quieras abrir. Una entrada inválida termina la ejecución sin modificar la lista.
 
 El script abre hasta esa cantidad y reescribe el archivo con los enlaces restantes. Retira las entradas aunque una página no llegue a cargar; conserva una copia de la lista si la necesitas.
 

@@ -1,25 +1,32 @@
-# Utilidades de automatización en Python
+# Python Automation Tools
 
-[Volver al portfolio](../../README.md)
+Scripts independientes para trabajar con enlaces, documentos, imágenes y archivos.
+Se agrupan por función y complementan el [proyecto principal del portfolio](../../README.md).
 
-Scripts independientes para trabajar con enlaces, documentos, imágenes y archivos. Se agrupan por función para que sea fácil localizar cada herramienta.
+## Herramientas
 
-| Grupo | Utilidades |
-| --- | --- |
-| [Apertura de enlaces](link-opener/README.md) | Abrir una lista de enlaces y conservar los pendientes. |
-| [Herramientas PDF](pdf-tools/README.md) | Buscar PDF faltantes, eliminar la primera página y descargar documentos desde una hoja de cálculo. |
-| [Imágenes y PDF](image-pdf-tools/README.md) | Eliminar imágenes coincidentes en PDF e inspeccionar dimensiones y tamaño de imágenes. |
-| [Organización de archivos](file-utilities/README.md) | Mover cada PDF a una carpeta con su mismo nombre. |
-| [Herramientas de escritorio](desktop-tools/README.md) | Consultar las coordenadas del cursor. |
+| Herramienta | Función | Dependencias |
+| --- | --- | --- |
+| [Apertura de enlaces](link-opener/) | Abrir enlaces de una lista y guardar los pendientes. | Biblioteca estándar |
+| [Herramientas PDF](pdf-tools/) | Buscar PDF faltantes, eliminar la primera página y descargar documentos desde Excel. | PyPDF2, requests, openpyxl |
+| [Imágenes y PDF](image-pdf-tools/) | Inspeccionar imágenes y eliminar imágenes coincidentes dentro de PDF. | Pillow, PyMuPDF |
+| [Organización de archivos](file-utilities/) | Mover cada PDF a una carpeta con su mismo nombre. | Biblioteca estándar |
+| [Herramientas de escritorio](desktop-tools/) | Consultar las coordenadas del cursor. | PyAutoGUI |
+
+## Instalación
+
+Requieren Python 3. Desde esta carpeta, instala las dependencias:
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+[requirements.txt](requirements.txt) contiene los paquetes externos utilizados, sin versiones fijadas.
 
 ## Uso
 
-Requieren Python 3. Cada grupo indica sus dependencias y los comandos de ejecución. Las rutas relativas introducidas por consola se interpretan desde el directorio de trabajo.
+Cada carpeta contiene un README con instrucciones, archivos de entrada y precauciones específicas. Las rutas relativas se interpretan desde el directorio en el que ejecutes el comando.
 
-Algunas herramientas modifican o mueven los archivos de entrada. Consulta su README y utiliza copias cuando necesites conservar los originales.
+## Nota
 
-## Configuración de editor conservada
-
-[TFG.code-workspace](editor/TFG.code-workspace) es una configuración local de VS Code que apunta a una carpeta `TFG` externa al repositorio. Su ruta relativa conserva el destino de la ubicación original y depende de la organización de carpetas de cada equipo. Este archivo no incluye el código del proyecto.
-
-Autor: Álvaro López. [Contacto](../../README.md#contacto).
+Algunas herramientas modifican o mueven archivos. Trabaja sobre copias para conservar los originales.

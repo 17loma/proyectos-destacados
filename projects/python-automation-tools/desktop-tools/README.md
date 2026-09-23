@@ -15,4 +15,4 @@ python mouse_coordinates.py
 
 Mueve el cursor hasta la posición que quieras consultar. Pulsa Ctrl+C en la terminal para detener el script y mostrar las últimas coordenadas leídas.
 
-El bucle de consulta no incluye una pausa y puede mantener un consumo de CPU elevado mientras está activo.
+La consulta incluye una pausa breve para limitar el consumo de CPU. Si se interrumpe antes de obtener la primera posición, termina sin mostrar coordenadas inexistentes.

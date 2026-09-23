@@ -14,7 +14,7 @@ Requiere Python 3, sin dependencias externas.
 python find_missing_pdfs.py
 ```
 
-Introduce la ruta del archivo de texto —un nombre por línea, sin `.pdf`— y la carpeta donde buscar. La comparación de nombres distingue mayúsculas y minúsculas.
+Introduce la ruta del archivo de texto —un nombre por línea, sin `.pdf`— y la carpeta donde buscar. La comparación de nombres distingue mayúsculas y minúsculas. Si el directorio de búsqueda no existe, termina con un mensaje antes de comparar.
 
 ## Eliminar la primera página
 
@@ -25,7 +25,7 @@ python -m pip install PyPDF2
 python remove_first_page.py
 ```
 
-**Sobrescribe los PDF originales.** Trabaja sobre copias y revisa el resultado antes de sustituir los documentos que quieras conservar.
+**Sustituye los PDF originales tras completar la escritura en un temporal de la misma carpeta.** Si esa escritura falla, conserva el original. Sigue siendo una operación que modifica documentos: trabaja sobre copias si necesitas conservarlos.
 
 ## Descargar PDF desde una hoja de cálculo
 
@@ -38,6 +38,8 @@ python -m pip install requests openpyxl
 python download_pdfs.py
 ```
 
-Introduce un directorio de destino que ya exista. El script guarda cada respuesta con extensión `.pdf` y puede sobrescribir archivos con el mismo nombre. No comprueba que la respuesta descargada sea un PDF válido; revisa los resultados.
+Introduce un directorio de destino que ya exista. El script omite filas vacías, rechaza campos incompletos y nombres que contengan rutas o caracteres no portables, y comprueba que el destino resuelto permanezca dentro de esa carpeta. Cada petición tiene un timeout de 30 segundos y debe superar la comprobación de estado HTTP antes de guardarse.
+
+Guarda primero en un temporal y sustituye el destino al terminar; puede reemplazar archivos con el mismo nombre después de una descarga correcta. Ante errores de petición o escritura informa de la fila y continúa. No valida completamente el contenido PDF; revisa los resultados.
 
 Las rutas relativas se resuelven desde el directorio de ejecución.
