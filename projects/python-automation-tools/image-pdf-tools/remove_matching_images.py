@@ -1,15 +1,14 @@
 import os
-import fitz  # PyMuPDF
+import pymupdf as fitz  # PyMuPDF
 from PIL import Image
 import io
 import tempfile
-import shutil
 
 def load_image(image_path):
-    return Image.open(image_path).convert("RGB")  
+    return Image.open(image_path).convert("RGB")
 
 def resize_image(image, size):
-    return image.resize(size, Image.Resampling.LANCZOS)  
+    return image.resize(size, Image.Resampling.LANCZOS)
 
 def compare_images(img1, img2, tolerance=10):
     if img1.size != img2.size:
@@ -25,29 +24,35 @@ def compare_images(img1, img2, tolerance=10):
     return True
 
 def remove_matching_images_from_pdf(pdf_path, reference_image):
-    pdf_document = fitz.open(pdf_path)
-    modified = False 
-    for page_num in range(len(pdf_document)):
-        page = pdf_document.load_page(page_num)
-        image_list = page.get_images(full=True)
-        for img in image_list:
-            xref = img[0]
-            base_image = pdf_document.extract_image(xref)
-            image_bytes = base_image["image"]
-            image = Image.open(io.BytesIO(image_bytes)).convert("RGB")  
-            resized_image = resize_image(image, reference_image.size)
-            if compare_images(reference_image, resized_image):
-                print(f"Eliminando imagen en {pdf_path}, página {page_num + 1}")
-                page.delete_image(xref)
-                modified = True  
-    if modified:
-        temp_file = tempfile.NamedTemporaryFile(delete=False, suffix=".pdf")
-        temp_file.close() 
-        pdf_document.save(temp_file.name)
-        pdf_document.close()
-        shutil.move(temp_file.name, pdf_path)
-    else:
-        pdf_document.close()
+    temp_path = None
+    try:
+        with fitz.open(pdf_path) as pdf_document:
+            modified = False
+            for page_num in range(len(pdf_document)):
+                page = pdf_document.load_page(page_num)
+                image_list = page.get_images(full=True)
+                for img in image_list:
+                    xref = img[0]
+                    base_image = pdf_document.extract_image(xref)
+                    image_bytes = base_image["image"]
+                    image = Image.open(io.BytesIO(image_bytes)).convert("RGB")
+                    resized_image = resize_image(image, reference_image.size)
+                    if compare_images(reference_image, resized_image):
+                        print(f"Eliminando imagen en {pdf_path}, página {page_num + 1}")
+                        page.delete_image(xref)
+                        modified = True
+            if modified:
+                with tempfile.NamedTemporaryFile(
+                    delete=False, suffix=".pdf", dir=os.path.dirname(os.path.abspath(pdf_path))
+                ) as temp_file:
+                    temp_path = temp_file.name
+                pdf_document.save(temp_path)
+        if temp_path is not None:
+            os.replace(temp_path, pdf_path)
+            temp_path = None
+    finally:
+        if temp_path is not None and os.path.exists(temp_path):
+            os.remove(temp_path)
 
 def main():
     reference_image_path = input("Introduce la ruta de la imagen de referencia: ")
@@ -60,8 +65,8 @@ def main():
         print("La ruta proporcionada no es una carpeta válida.")
         return
     for filename in os.listdir(folder_path):
-        if filename.endswith(".pdf"):
-            pdf_path = os.path.join(folder_path, filename)
+        pdf_path = os.path.join(folder_path, filename)
+        if filename.endswith(".pdf") and os.path.isfile(pdf_path):
             print(f"Procesando {filename}...")
             remove_matching_images_from_pdf(pdf_path, reference_image)
             print(f"Finalizado {filename}.")

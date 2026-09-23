@@ -1,0 +1,6 @@
+openpyxl
+Pillow
+PyAutoGUI
+PyMuPDF
+PyPDF2
+requests

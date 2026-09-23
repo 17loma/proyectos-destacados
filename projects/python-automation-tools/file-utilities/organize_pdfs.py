@@ -5,12 +5,16 @@ import shutil
 ruta = input("Introduce la ruta de la carpeta: ")
 
 
-if not os.path.exists(ruta):
+if not os.path.isdir(ruta):
     print("La ruta especificada no existe.")
     exit()
 
 
-archivos = [archivo for archivo in os.listdir(ruta) if archivo.lower().endswith('.pdf')]
+archivos = [
+    archivo for archivo in os.listdir(ruta)
+    if archivo.lower().endswith('.pdf')
+    and os.path.isfile(os.path.join(ruta, archivo))
+]
 
 
 for archivo in archivos:

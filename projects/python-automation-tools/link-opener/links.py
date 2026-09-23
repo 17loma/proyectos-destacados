@@ -16,7 +16,15 @@ if not links:
     print("No hay enlaces en el archivo.")
     exit()
 
-cantidad = int(input(f"Hay {len(links)} enlaces. ¿Cuántos quieres abrir? "))
+try:
+    cantidad = int(input(f"Hay {len(links)} enlaces. ¿Cuántos quieres abrir? "))
+except ValueError:
+    print("Introduce una cantidad entera positiva.")
+    raise SystemExit(1)
+
+if cantidad <= 0:
+    print("La cantidad debe ser mayor que cero.")
+    raise SystemExit(1)
 
 cantidad = min(cantidad, len(links))
 

@@ -3,6 +3,10 @@ import os
 ruta_archivo = input("Introduce la ruta del archivo con la lista de PDFs (uno por línea): ").strip()
 ruta_directorio = input("Introduce la ruta del directorio donde buscar los PDFs: ").strip()
 
+if not os.path.isdir(ruta_directorio):
+    print("El directorio de búsqueda no existe o no es una carpeta.")
+    raise SystemExit(1)
+
 try:
     with open(ruta_archivo, "r") as archivo:
         lista_archivo = [linea.strip() for linea in archivo.readlines()]

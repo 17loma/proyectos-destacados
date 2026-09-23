@@ -3,12 +3,12 @@ import os
 
 def verificar_imagen(ruta):
     try:
-        img = Image.open(ruta)
-        print(f"✔ {ruta}: {img.size} píxeles, {os.path.getsize(ruta)} bytes")
+        with Image.open(ruta) as img:
+            print(f"{ruta}: {img.size} píxeles, {os.path.getsize(ruta)} bytes")
         if os.path.getsize(ruta) < 1024: 
             print("Archivo demasiado pequeño")
         else:
-            print("Válida para PyAutoGUI")
+            print("Tamaño igual o superior a 1024 bytes")
     except Exception as e:
         print(f"Error: {e}")
 
