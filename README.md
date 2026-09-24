@@ -1,34 +1,28 @@
 # Álvaro López
 
-**Sistemas · Redes · Soporte · Infraestructura**
+**Técnico de Sistemas IT | Sistemas · Redes · Soporte · Infraestructura**
 
-Soy Técnico Superior en Administración de Sistemas Informáticos en Red (ASIR) y Técnico en Instalaciones de Telecomunicaciones. Mi experiencia se centra en soporte IT, sistemas, redes y resolución de incidencias.
+Técnico Superior en Administración de Sistemas Informáticos en Red (ASIR) y Técnico en Instalaciones de Telecomunicaciones. Mi experiencia se centra en soporte IT, sistemas, redes y resolución de incidencias.
 
-Este portfolio reúne proyectos prácticos y documentación del trabajo realizado.
+Este portfolio reúne dos proyectos que permiten ver cómo documento, integro y automatizo tareas técnicas.
 
-## Proyecto principal
+## Proyectos destacados
 
 ### Suricata Log Viewer
 
-Proyecto final de ASIR para procesar, almacenar y consultar eventos de seguridad desde una aplicación web.
+Proyecto final de ASIR para visualizar y gestionar eventos de seguridad generados por Suricata. El caso de estudio explica la arquitectura original, muestra capturas reales saneadas y publica una selección del código Python y de la configuración del sensor, con tests.
 
-```text
-Suricata 7 → EVE JSON → Python → MySQL → Laravel
-```
+**Suricata · Docker · Python · MySQL · Laravel · Linux**
 
-Suricata se ejecuta en Docker; la aplicación funciona en Linux con Apache. Incluye usuarios y roles, redes, filtros, alertas, notificaciones y exportación a PDF, con procesamiento programado mediante cron.
+[Ver el caso de estudio, el código y las evidencias](https://github.com/17loma/suricata-log-viewer)
 
-**[Consultar Suricata Log Viewer](projects/suricata-log-viewer/README.md)**
+La aplicación Laravel original está documentada, pero su código no se conserva actualmente. El repositorio publica componentes seleccionados; no ofrece el sistema completo.
 
-La documentación y la presentación están disponibles. El código original necesita una revisión y limpieza antes de publicarse completo.
+### Herramientas de automatización con Python
 
-## Otros proyectos
+Ocho utilidades para tareas con enlaces, archivos, PDF, imágenes y escritorio. Incluyen instrucciones, dependencias y comprobaciones de sintaxis.
 
-### Python Automation Tools
-
-Ocho utilidades independientes para trabajar con enlaces, PDF, imágenes, archivos y coordenadas del cursor.
-
-[Consultar las herramientas y sus instrucciones](projects/python-automation-tools/README.md)
+[Consultar las herramientas](https://github.com/17loma/herramientas-automatizacion-python)
 
 ## Tecnologías
 
@@ -37,12 +31,12 @@ Ocho utilidades independientes para trabajar con enlaces, PDF, imágenes, archiv
 | Sistemas y virtualización | Windows Server, Linux, Ubuntu, VMware, Hyper-V |
 | Redes | TCP/IP, DNS, DHCP, VPN, Cisco y diagnóstico de incidencias |
 | Contenedores y monitorización | Docker, Suricata y análisis de logs |
-| Automatización y servicios web | Python, Bash, PHP, Laravel, Apache |
+| Automatización | Python, Bash |
+| Desarrollo y servicios | PHP, Laravel, Apache |
 | Datos | MySQL, SQL Server |
 | Control de versiones | Git, GitHub |
 
 ## Contacto
 
 - [LinkedIn](https://www.linkedin.com/in/%C3%A1lvaro-l%C3%B3pez-maceda-b53026356)
-- [GitHub](https://github.com/17loma)
-- [Correo electrónico](mailto:lopezalvaro0317@gmail.com)
+- [Perfil de GitHub](https://github.com/17loma)

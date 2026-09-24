@@ -1,0 +1,42 @@
+name: Comprobar portfolio
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  enlaces:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.14'
+      - name: Comprobar destinos de GitHub y enlaces relativos
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          import os, pathlib, re, urllib.parse, urllib.request
+          root = pathlib.Path.cwd()
+          content = (root / "README.md").read_text(encoding="utf-8")
+          urls = set(re.findall(r"\]\(([^)]+)\)", content))
+          for url in urls:
+              parsed = urllib.parse.urlsplit(url)
+              if parsed.netloc == "github.com":
+                  parts = parsed.path.strip("/").split("/")
+                  route = "repos/" if len(parts) == 2 else "users/"
+                  request = urllib.request.Request(
+                      "https://api.github.com/" + route + "/".join(parts),
+                      headers={"Authorization": "Bearer " + os.environ["GH_TOKEN"],
+                               "Accept": "application/vnd.github+json"},
+                  )
+                  with urllib.request.urlopen(request, timeout=30) as response:
+                      assert response.status == 200
+              elif not parsed.scheme:
+                  target = (root / parsed.path).resolve()
+                  assert target.is_relative_to(root) and target.exists()
+          print("Destinos de GitHub y enlaces relativos correctos")
+          PY
